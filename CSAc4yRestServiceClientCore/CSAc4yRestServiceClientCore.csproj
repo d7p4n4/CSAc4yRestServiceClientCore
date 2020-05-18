@@ -10,4 +10,19 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="CSAc4yFW">
+      <HintPath>C:\library\LPCsharp\CSAc4yFW.dll</HintPath>
+    </Reference>
+    <Reference Include="CSAc4yServiceFW">
+      <HintPath>C:\library\LPCsharp\CSAc4yServiceFW.dll</HintPath>
+    </Reference>
+    <Reference Include="CSEFTPC4Core3Cap">
+      <HintPath>C:\library\LPCsharp\CSEFTPC4Core3Cap.dll</HintPath>
+    </Reference>
+    <Reference Include="CSEFTPC4Core3Objects">
+      <HintPath>C:\library\LPCsharp\CSEFTPC4Core3Objects.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
