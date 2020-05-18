@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Reflection;
+using static CSEFTPC4Core3ObjectService.ObjectServices.Ac4yPersistentChildEFService;
 
 namespace CSAc4yRestServiceClientCore
 {
@@ -21,6 +22,9 @@ namespace CSAc4yRestServiceClientCore
             IConfiguration config = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", true, true)
             .Build();
+
+            GetListResponse response =
+                new CSEFTPC4Core3RESTServiceClient().GetList(new GetListRequest());
         }
     }
 }

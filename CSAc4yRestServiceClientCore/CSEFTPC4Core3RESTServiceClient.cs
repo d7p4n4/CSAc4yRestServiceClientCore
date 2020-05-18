@@ -1,6 +1,4 @@
-﻿using CSEFTPC4Core3Cap.CAPs;
-using CSEFTPC4Core3Objects.Ac4yObjects;
-using Modul.Final.Class;
+﻿using Modul.Final.Class;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,13 +6,30 @@ using static CSEFTPC4Core3ObjectService.ObjectServices.Ac4yPersistentChildEFServ
 
 namespace CSAc4yRestServiceClientCore
 {
-    class EFCSTPC4Core3RESTServiceClient
+    public class EFCSTPC4Core3RESTServiceClient
     {
         public GetListResponse GetList(GetListRequest request)
         {
+            GetListResponse response = new GetListResponse();
 
-        } // GetList
+            try
+            {
+                Ac4yRestServiceClient ac4yRestServiceClient = new Ac4yRestServiceClient("https://ac4yservice.sycompla.hu");
 
+                response.Result.Message = ac4yRestServiceClient.GET("/odata/ac4yodata");
+
+                response.Result = new Ac4yProcessResult() { Code = Ac4yProcessResult.SUCCESS };
+                
+            }
+            catch (Exception exception)
+            {
+                response.Result = (new Ac4yProcessResult() { Code = Ac4yProcessResult.FAIL, Message = exception.Message, Description = exception.StackTrace });
+            }
+
+            return response;
+
+         } // GetList
+    /*
         public GetByIdResponse GetById(GetByIdRequest request)
         {
 
@@ -64,7 +79,7 @@ namespace CSAc4yRestServiceClientCore
         public DeleteByIdResponse DeleteById(DeleteByIdRequest request)
         {
 
-        }
+        }*/
 
 
     } // Ac4yPersistentChildEFService
