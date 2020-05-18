@@ -23,6 +23,9 @@
     <Reference Include="CSEFTPC4Core3Objects">
       <HintPath>C:\library\LPCsharp\CSEFTPC4Core3Objects.dll</HintPath>
     </Reference>
+    <Reference Include="CSEFTPC4Core3ObjectService">
+      <HintPath>C:\library\LPCsharp\CSEFTPC4Core3ObjectService.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
