@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +19,9 @@
     </Reference>
     <Reference Include="CSAc4yServiceFW">
       <HintPath>C:\library\LPCsharp\CSAc4yServiceFW.dll</HintPath>
+    </Reference>
+    <Reference Include="CSEFTPC4Core3Objects">
+      <HintPath>C:\library\LPCsharp\CSEFTPC4Core3Objects.dll</HintPath>
     </Reference>
     <Reference Include="CSEFTPC4Core3ObjectService">
       <HintPath>C:\library\LPCsharp\CSEFTPC4Core3ObjectService.dll</HintPath>

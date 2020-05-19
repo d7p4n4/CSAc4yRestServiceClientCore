@@ -1,4 +1,5 @@
 ﻿using Modul.Final.Class;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,36 +7,30 @@ using static CSEFTPC4Core3ObjectService.ObjectServices.Ac4yPersistentChildEFServ
 
 namespace CSAc4yRestServiceClientCore
 {
-    public class EFCSTPC4Core3RESTServiceClient
+    public class CSEFTPC4Core3RESTServiceClient
     {
-        public GetListResponse GetList(GetListRequest request)
+
+        public ODataGetResponse GetList(GetListRequest request)
         {
-            GetListResponse response = new GetListResponse();
+            Ac4yRestServiceClient ac4yRestServiceClient = new Ac4yRestServiceClient("https://ac4yrestservice.sycompla.hu/odata/ac4yodata");
 
-            try
-            {
-                Ac4yRestServiceClient ac4yRestServiceClient = new Ac4yRestServiceClient("https://ac4yservice.sycompla.hu");
+            string json = ac4yRestServiceClient.GET("");
 
-                response.Result.Message = ac4yRestServiceClient.GET("/odata/ac4yodata");
+            return JsonConvert.DeserializeObject<ODataGetResponse>(json);
 
-                response.Result = new Ac4yProcessResult() { Code = Ac4yProcessResult.SUCCESS };
-                
-            }
-            catch (Exception exception)
-            {
-                response.Result = (new Ac4yProcessResult() { Code = Ac4yProcessResult.FAIL, Message = exception.Message, Description = exception.StackTrace });
-            }
 
-            return response;
-
-         } // GetList
-    /*
+        } // GetList
+    
         public GetByIdResponse GetById(GetByIdRequest request)
         {
+             Ac4yRestServiceClient ac4yRestServiceClient = new Ac4yRestServiceClient("https://ac4yrestservice.sycompla.hu");
 
+            string json = ac4yRestServiceClient.GET("/ac4ypersistentchild/getbyid/", "{\n\t\"Id\": " + request.Id + "\n\t}");
+
+            return JsonConvert.DeserializeObject<GetByIdResponse>(json);
 
         } // GetById
-
+        /*
         public GetByGuidResponse GetByGuid(GetByGuidRequest request)
         {
 
@@ -82,6 +77,5 @@ namespace CSAc4yRestServiceClientCore
         }*/
 
 
-    } // Ac4yPersistentChildEFService
-
-} // EFService
+    }
+}

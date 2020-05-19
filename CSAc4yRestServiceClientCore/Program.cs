@@ -8,12 +8,12 @@ using static CSEFTPC4Core3ObjectService.ObjectServices.Ac4yPersistentChildEFServ
 
 namespace CSAc4yRestServiceClientCore
 {
-    class Program
+    public class Program
     {
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
@@ -23,8 +23,10 @@ namespace CSAc4yRestServiceClientCore
             .AddJsonFile("appsettings.json", true, true)
             .Build();
 
-            GetListResponse response =
-                new CSEFTPC4Core3RESTServiceClient().GetList(new GetListRequest());
+
+            GetByIdResponse response =
+                new CSEFTPC4Core3RESTServiceClient().GetById(new GetByIdRequest() { Id = 12 });
         }
     }
+
 }

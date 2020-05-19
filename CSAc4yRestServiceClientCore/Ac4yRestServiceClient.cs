@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CSAc4yRestServiceClientCore
 {
-    class Ac4yRestServiceClient
+    public class Ac4yRestServiceClient
     {
         public string Server { get; set; }
         public string AuthorizationKey { get; set; }
@@ -33,7 +33,7 @@ namespace CSAc4yRestServiceClientCore
             HttpRequestMessage httpRequest = new HttpRequestMessage()
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri(Server),
+                RequestUri = new Uri(Server + path),
                 Content = new StringContent(request, UTF8Encoding.UTF8, "application/json"),
             };
 
